@@ -203,31 +203,24 @@ while not crashed:
         if event.type == pygame.QUIT:
             crashed = True
     
-    
+    #imagefunctions
     image1.its_pong()
     image1.line()
-   
+    #
     
-    #displays ball
+    
+    #ball functions
     ball1.b_imgblit()
-    #
-                        
-    # moves ball                    
     ball1.ballmove()
-    #
-                        
-    #bounces ball off screen borders
-         
     ball1.detectborder()
     
-    #
+    
    
-       
+    #player functions    
     game1paddle1.paddle1()
     
     ai_1.AIdetectborder()
     ai_1.paddleai()
-
     ai_1.paddle2blit()
     
     
