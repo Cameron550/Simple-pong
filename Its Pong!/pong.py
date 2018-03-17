@@ -50,8 +50,8 @@ class ball:
         self.y = 300
         
         #ballspeed
-        self.xs = 2
-        self.ys = 2
+        self.xs = 3
+        self.ys = 3
 
         
 
@@ -141,13 +141,26 @@ class AI():
         self.paddle2 = pygame.image.load(self.paddle2img)
         
         
+        self.direction = 0
         
-        #randomated variables
-        
-    def detectball(self):
-        self.paddle2y = ball1.y
+        self.paddle2y = 300
 
-    
+    def paddleai(self):
+        #detects ball location and moves paddle to it
+        if ball1.xs == 3:
+            if ball1.ys == -3:
+                self.direction = -2.5
+
+            else:
+                self.direction = 2.5
+           
+            #response
+            if self.paddle2y != ball1.y:
+                    self.paddle2y = self.paddle2y + self.direction
+        #
+        
+      
+
 
     def paddle2blit(self):
         
@@ -165,10 +178,6 @@ class AI():
 
    
 
-    
-
-    
-                
             
         
 def update():
@@ -215,25 +224,20 @@ while not crashed:
    
        
     game1paddle1.paddle1()
-    ai_1.detectball()
-    ai_1.AIdetectborder() 
+    
+    ai_1.AIdetectborder()
+    ai_1.paddleai()
+
     ai_1.paddle2blit()
     
     
     update()
   
-    
-    
-    
+
     
     gamedisplay.fill(white)
   
-    
-    
 
-    
-   
-    
     clock.tick(60)
 
 
