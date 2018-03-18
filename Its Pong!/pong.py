@@ -69,17 +69,33 @@ class ball:
 
 
 
-    def detectborder(self):
-        if self.x >= displaywidth * 0.85 or self.x <= displaywidth * 0.06:
-            self.xs = self.xs * -1
-        
+    def detectpaddle(self):
+        #Im sure theres a better solution to detect the paddle,
+        #but this is the first one i could think of.
+        self.paddletop = game1paddle1.paddle1y + 58
+        self.paddlebottom = game1paddle1.paddle1y - 58
+        self.aipaddletop = ai_1.paddle2y + 58
+        self.aipaddlebottom = ai_1.paddle2y - 58
 
-        elif self.y >= displayheight * 0.9 or self.y <= displayheight * 0.1:
+
+        if ball1.y  < self.paddletop  and ball1.y > self.paddlebottom:
+            if ball1.x < 32:
+                self.xs = self.xs * -1
+
+        
+        if ball1.y  < self.aipaddletop and ball1.y > self.aipaddlebottom:
+            if ball1.x > 695:
+                self.xs = self.xs * -1
+
+        #
+
+
+
+    def detectborder(self):
+        if self.y >= displayheight * 0.9 or self.y <= displayheight * 0.1:
             self.ys = self.ys * -1
 
 
-
-    
 
 class player:
     def __init__(self):
@@ -213,7 +229,7 @@ while not crashed:
     ball1.b_imgblit()
     ball1.ballmove()
     ball1.detectborder()
-    
+    ball1.detectpaddle()
     
    
     #player functions    
