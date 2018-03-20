@@ -64,9 +64,6 @@ class images:
         
 class ball:
     
-
-
-   
     def __init__(self):
         #images
         self.b_img = "transparentball.png"
