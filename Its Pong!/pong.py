@@ -64,6 +64,9 @@ class images:
         
 class ball:
     
+
+
+   
     def __init__(self):
         #images
         self.b_img = "transparentball.png"
@@ -75,8 +78,8 @@ class ball:
         self.y = 300
         
         #ballspeed
-        self.xs = 3
-        self.ys = 3
+        self.xs = 4
+        self.ys = 4
 
         
 
@@ -180,15 +183,29 @@ class AI():
         self.direction = 0
         
         self.paddle2y = 300
+        self.directionspeed = 3.0
+
+
 
     def paddleai(self):
-        #detects ball location and moves paddle to it
-        if ball1.xs == 3:
-            if ball1.ys == -3:
-                self.direction = -2.5
 
+        self.paddlespeedchg = random.randint(1,1100)
+        if self.paddlespeedchg == 50:
+            self.directionspeed = random.uniform(2.9,3.8)
+        
+
+
+
+
+
+        
+        #detects ball location and moves paddle to it
+        if ball1.xs == 4:
+            if ball1.ys == -4:
+                self.direction = -self.directionspeed
+                
             else:
-                self.direction = 2.5
+                self.direction = self.directionspeed
            
             #response
             if self.paddle2y != ball1.y:
@@ -196,8 +213,7 @@ class AI():
         #
         
       
-
-
+    
     def paddle2blit(self):
         
         gamedisplay.blit(self.paddle2, (755, self.paddle2y))
@@ -226,7 +242,10 @@ class gamelogic:
             ball1.x = 400
             ball1.y = 300
             ball1.xs = ball1.xs * -1
+
+            
             time.sleep(1.5)
+            
 
         
     def playerscore(self):
