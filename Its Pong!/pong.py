@@ -10,7 +10,6 @@ ballstart = random.randint(1,2)
 pygame.init()
 clock = pygame.time.Clock()
 
-# Please accept me into Troy University. :)
 
          # display settings
 gamedisplay = pygame.display.set_mode((displaywidth,displayheight))
