@@ -55,16 +55,9 @@ class images:
 
     def gameoverimage(self):
         gamedisplay.blit(self.gameoverimg, (220,200))
-
-
-
-       
         
         
 class ball:
-    
-
-
    
     def __init__(self):
         #images
@@ -89,7 +82,6 @@ class ball:
     def ballmove(self):
         self.x = self.x + self.xs
         self.y = self.y + self.ys
-
 
   
 
@@ -150,13 +142,12 @@ class player:
        #
        
 
-        
+    
        #loads paddle image then displays it
        p1img = pygame.image.load(self.paddle1img)
        gamedisplay.blit(p1img, (25, self.paddle1y))
        #
        
-
 
        
        #checking pressed keys
@@ -191,13 +182,9 @@ class AI():
         self.paddlespeedchg = random.randint(1,1100)
         if self.paddlespeedchg == 50:
             self.directionspeed = random.uniform(2.9,3.8)
-        
 
 
-
-
-
-        
+   
         #detects ball location and moves paddle to it
         if ball1.xs == 4:
             if ball1.ys == -4:
@@ -212,7 +199,6 @@ class AI():
         #
         
       
-    
     def paddle2blit(self):
         
         gamedisplay.blit(self.paddle2, (755, self.paddle2y))
@@ -246,7 +232,6 @@ class gamelogic:
             time.sleep(1.5)
             
 
-        
     def playerscore(self):
         #adds point if ball passes behind paddle
         if ball1.x < 2:
@@ -308,8 +293,7 @@ class gamelogic:
             update()
             time.sleep(5)
                 
-                
-
+            
         
 
 #class instances
